@@ -170,15 +170,13 @@ arduino-cli lib examples "Wio LTE for Arduino"
 
 ```bash
 LED_SKETCH="$HOME/Arduino/libraries/Wio_LTE_for_Arduino/examples/basic/LedSetRGB"
-arduino-cli compile --fqbn SeeedJP:stm32:WioLTE \
-  --build-path /tmp/wio-lte-led-build "$LED_SKETCH"
+arduino-cli compile --fqbn SeeedJP:stm32:WioLTE "$LED_SKETCH"
 ```
 
 コンパイルに成功したら、シリアルモニターを閉じ、ボードを **DFU モード** にして書き込みます。
 
 ```bash
-arduino-cli upload --fqbn SeeedJP:stm32:WioLTE \
-  --build-path /tmp/wio-lte-led-build "$LED_SKETCH"
+arduino-cli upload --fqbn SeeedJP:stm32:WioLTE "$LED_SKETCH"
 ```
 
 このボードの書き込みは USB DFU を使うため、`--port /dev/ttyACM0` は指定しません。`upload` 自体はコンパイルしないので、コード変更後は必ず `compile` を先に実行します。
@@ -201,15 +199,13 @@ arduino-cli upload --fqbn SeeedJP:stm32:WioLTE \
 
 ```bash
 HARVEST_SKETCH="$HOME/Arduino/libraries/Wio_LTE_for_Arduino/examples/soracom/soracom-harvest"
-arduino-cli compile --fqbn SeeedJP:stm32:WioLTE \
-  --build-path /tmp/wio-lte-harvest-build "$HARVEST_SKETCH"
+arduino-cli compile --fqbn SeeedJP:stm32:WioLTE "$HARVEST_SKETCH"
 ```
 
 ボードを DFU モードに切り替えてから書き込みます。
 
 ```bash
-arduino-cli upload --fqbn SeeedJP:stm32:WioLTE \
-  --build-path /tmp/wio-lte-harvest-build "$HARVEST_SKETCH"
+arduino-cli upload --fqbn SeeedJP:stm32:WioLTE "$HARVEST_SKETCH"
 ```
 
 このサンプルは APN `soracom.io`、ユーザー名・パスワード `sora` で接続し、`harvest.soracom.io:8514` へ UDP で稼働秒数 `uptime` を送信します。初回はセンサー用の `SENSOR_PIN` をコメントアウトしたまま使います。[公式サンプルのソース](https://github.com/SeeedJP/WioLTEforArduino/blob/main/examples/soracom/soracom-harvest/soracom-harvest.ino)
@@ -255,15 +251,13 @@ src/
 Arduino のスケッチはディレクトリ名と主 `.ino` ファイル名を一致させます。
 
 ```bash
-arduino-cli compile --fqbn SeeedJP:stm32:WioLTE \
-  --build-path /tmp/wio-lte-project-build src/MyFirstSketch
+arduino-cli compile --fqbn SeeedJP:stm32:WioLTE src/MyFirstSketch
 ```
 
 DFU モードに切り替え、同じビルド先から書き込みます。
 
 ```bash
-arduino-cli upload --fqbn SeeedJP:stm32:WioLTE \
-  --build-path /tmp/wio-lte-project-build src/MyFirstSketch
+arduino-cli upload --fqbn SeeedJP:stm32:WioLTE src/MyFirstSketch
 ```
 
 以降は「編集 → コンパイル → DFU モード → 書き込み → RST → 動作確認」を繰り返します。`/tmp` のビルド結果が削除された場合は、再度コンパイルしてください。
