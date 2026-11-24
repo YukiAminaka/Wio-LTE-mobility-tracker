@@ -40,6 +40,9 @@ arduino-cli version
 ```bash
 arduino-cli config init
 ```
+↓vscodeを使う場合Arduino CLI拡張機能を入れると便利
+
+https://github.com/tanakamasayuki/vscode-arduino-cli-wrapper
 
 ## 3. JP 版用のボード定義とライブラリを入れる
 
