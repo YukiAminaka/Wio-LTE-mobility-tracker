@@ -1,0 +1,13 @@
+profiles:
+  # Wio LTE JP Version (Quectel EC21-J / LTE Cat.1)
+  wio_lte_jp:
+    notes: Seeed Wio LTE JP Version
+    fqbn: SeeedJP:stm32:WioLTE
+    platforms:
+      - platform: SeeedJP:stm32 (1.9)
+        platform_index_url: http://www.seeed.co.jp/package_SeeedJP_index.json
+    libraries:
+      - Wio LTE for Arduino (2.13.0)
+      - SparkFun u-blox GNSS v3 (3.1.9)
+
+default_profile: wio_lte_jp
