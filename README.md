@@ -72,6 +72,7 @@ arduino-cli core install SeeedJP:stm32@1.9
 ```
 
 ライブラリ「Wio LTE for Arduino」が必要なのでインストールします。
+STM32系でFreeRTOSを使う場合「STM32duino FreeRTOS」が必要です。
 
 ```bash
 # ライブラリのインデックスをアップデート
@@ -80,6 +81,10 @@ arduino-cli lib update-index
 arduino-cli lib search "wio lte"
 # ライブラリをインストール
 arduino-cli lib install "Wio LTE for Arduino@2.13.0"
+
+# STM32系のボードでFreeRTOSを扱うためのライブラリをインストール
+arduino-cli lib search "STM32duino FreeRTOS"
+arduino-cli lib install "STM32duino FreeRTOS@10.3.3"
 ```
 
 インストール結果とボード識別子を確認します。ボードを PC に接続していなくても実行できます。
